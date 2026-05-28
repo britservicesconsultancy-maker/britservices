@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BR IT Services — Institute & IT Consultancy | Bengaluru</title>
+  <meta name="description" content="BR IT Services provides industry-grade IT training, live project experience, and direct placement support in Bengaluru. Java, Python, Linux, Testing and more." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:          #06091a;
+      --bg-2:        #0b1128;
+      --bg-3:        #101830;
+      --surface:     #0f1a35;
+      --surface-2:   #152040;
+      --border:      rgba(255,255,255,0.07);
+      --border-2:    rgba(255,255,255,0.12);
+      --blue:        #3b82f6;
+      --blue-light:  #60a5fa;
+      --blue-dark:   #1d4ed8;
+      --orange:      #f97316;
+      --orange-light:#fb923c;
+      --amber:       #f59e0b;
+      --text:        #f1f5f9;
+      --text-2:      #94a3b8;
+      --text-3:      #64748b;
+      --green:       #22c55e;
+      --font-head:   'Syne', sans-serif;
+      --font-body:   'Plus Jakarta Sans', sans-serif;
+      --radius:      12px;
+      --radius-lg:   20px;
+      --shadow:      0 4px 24px rgba(0,0,0,0.4);
+      --shadow-lg:   0 8px 48px rgba(0,0,0,0.6);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── UTILITIES ─── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section { padding: 96px 0; }
+    .section-sm { padding: 64px 0; }
+    .label {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-body); font-size: 12px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 16px;
+    }
+    .label::before {
+      content: ''; display: block; width: 20px; height: 2px;
+      background: var(--orange);
+    }
+    .heading {
+      font-family: var(--font-head); font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    h1.heading { font-size: clamp(38px, 6vw, 72px); }
+    h2.heading { font-size: clamp(28px, 4vw, 48px); }
+    h3.heading { font-size: clamp(20px, 3vw, 28px); }
+    .subheading {
+      font-family: var(--font-head); font-weight: 700; font-size: clamp(14px, 2vw, 18px);
+      color: var(--text-2); margin-top: 8px;
+    }
+    .body-text { color: var(--text-2); line-height: 1.75; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      font-family: var(--font-body); font-weight: 700; font-size: 14px;
+      letter-spacing: 0.02em; padding: 14px 28px; border-radius: 8px;
+      cursor: pointer; border: none; text-decoration: none; transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--orange); color: #fff;
+    }
+    .btn-primary:hover { background: var(--orange-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(249,115,22,0.35); }
+    .btn-secondary {
+      background: transparent; color: var(--text); border: 1.5px solid var(--border-2);
+    }
+    .btn-secondary:hover { border-color: var(--blue-light); color: var(--blue-light); transform: translateY(-2px); }
+    .btn-blue {
+      background: var(--blue); color: #fff;
+    }
+    .btn-blue:hover { background: var(--blue-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(59,130,246,0.35); }
+    .tag {
+      display: inline-flex; align-items: center; font-size: 11px; font-weight: 600;
+      padding: 4px 10px; border-radius: 100px; background: rgba(59,130,246,0.12);
+      color: var(--blue-light); border: 1px solid rgba(59,130,246,0.2);
+      white-space: nowrap;
+    }
+    .tag-orange {
+      background: rgba(249,115,22,0.1); color: var(--orange-light);
+      border-color: rgba(249,115,22,0.2);
+    }
+    .tag-green {
+      background: rgba(34,197,94,0.1); color: var(--green);
+      border-color: rgba(34,197,94,0.2);
+    }
+    .card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      border-color: var(--border-2);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    /* ─── SCROLL ANIMATIONS ─── */
+    .reveal {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+    .reveal-delay-6 { transition-delay: 0.6s; }
+
+    /* ─── NAVBAR ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 0 24px;
+      transition: all 0.3s ease;
+    }
+    nav.scrolled {
+      background: rgba(6,9,26,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 72px;
+    }
+    .nav-logo {
+      display: flex; flex-direction: column; text-decoration: none;
+      line-height: 1.1;
+    }
+    .nav-logo-main {
+      font-family: var(--font-head); font-weight: 800; font-size: 20px;
+      color: var(--text); letter-spacing: -0.02em;
+    }
+    .nav-logo-sub {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--orange);
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 32px; list-style: none;
+    }
+    .nav-links a {
+      font-size: 14px; font-weight: 500; color: var(--text-2);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { display: flex; gap: 12px; align-items: center; }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px; background: none; border: none;
+    }
+    .hamburger span {
+      display: block; width: 22px; height: 2px; background: var(--text);
+      border-radius: 2px; transition: all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu {
+      display: none; position: fixed; top: 72px; left: 0; right: 0; z-index: 999;
+      background: rgba(6,9,26,0.97); backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 24px; flex-direction: column; gap: 16px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-size: 16px; font-weight: 500; color: var(--text-2);
+      text-decoration: none; padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:hover { color: var(--text); }
+    .mobile-menu .btn { margin-top: 8px; width: 100%; }
+
+    /* ─── HERO ─── */
+    #hero {
+      min-height: 100vh; display: flex; align-items: center;
+      position: relative; overflow: hidden;
+      padding: 120px 24px 80px;
+      background: var(--bg);
+    }
+    .hero-bg {
+      position: absolute; inset: 0; pointer-events: none; z-index: 0;
+    }
+    .hero-bg-gradient {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 60% 30%, rgba(29,78,216,0.18) 0%, transparent 70%),
+                  radial-gradient(ellipse 50% 40% at 20% 70%, rgba(249,115,22,0.08) 0%, transparent 60%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image: linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+    }
+    .hero-inner {
+      position: relative; z-index: 1;
+      max-width: 1200px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--orange); background: rgba(249,115,22,0.1);
+      border: 1px solid rgba(249,115,22,0.25); border-radius: 100px;
+      padding: 6px 14px; margin-bottom: 20px;
+    }
+    .hero-badge::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--orange); animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(0.8); }
+    }
+    .hero-title { margin-bottom: 8px; }
+    .hero-brand {
+      display: block; font-size: clamp(14px, 2vw, 18px); font-weight: 600;
+      color: var(--blue-light); letter-spacing: 0.04em; margin-bottom: 12px;
+    }
+    .hero-description {
+      font-size: 17px; color: var(--text-2); line-height: 1.75;
+      margin: 20px 0 32px; max-width: 520px;
+    }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .hero-tags .tag { font-size: 12px; }
+
+    /* Hero right: Terminal */
+    .hero-visual {
+      display: flex; flex-direction: column; gap: 16px;
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .terminal {
+      background: #0d1a30; border: 1px solid rgba(59,130,246,0.25);
+      border-radius: 14px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+    }
+    .terminal-header {
+      background: rgba(255,255,255,0.04); padding: 12px 16px;
+      display: flex; align-items: center; gap: 8px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-r { background: #ff5f57; }
+    .dot-y { background: #febc2e; }
+    .dot-g { background: #28c840; }
+    .terminal-title {
+      font-size: 11px; color: var(--text-3); margin-left: 8px; font-family: monospace;
+    }
+    .terminal-body { padding: 20px; font-family: 'Courier New', monospace; font-size: 13px; }
+    .t-line { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; line-height: 1.5; }
+    .t-prompt { color: var(--green); flex-shrink: 0; }
+    .t-cmd { color: var(--blue-light); }
+    .t-output { color: #94a3b8; padding-left: 16px; font-size: 12px; }
+    .t-green { color: var(--green); }
+    .t-orange { color: var(--orange); }
+    .t-cursor {
+      display: inline-block; width: 8px; height: 14px; background: var(--blue-light);
+      animation: blink 1.2s step-end infinite; vertical-align: middle; margin-left: 2px;
+    }
+    @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+
+    .stats-mini {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+    }
+    .stat-mini-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px;
+    }
+    .stat-mini-num {
+      font-family: var(--font-head); font-size: 24px; font-weight: 800;
+      color: var(--text); line-height: 1;
+    }
+    .stat-mini-num span { color: var(--orange); }
+    .stat-mini-label { font-size: 11px; color: var(--text-3); margin-top: 4px; font-weight: 500; }
+
+    /* ─── TICKER ─── */
+    .ticker-wrap {
+      background: var(--surface); border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border); overflow: hidden;
+      padding: 14px 0;
+    }
+    .ticker-track {
+      display: flex; gap: 0;
+      animation: ticker 35s linear infinite;
+      width: max-content;
+    }
+    .ticker-track:hover { animation-play-state: paused; }
+    .ticker-item {
+      display: flex; align-items: center; gap: 12px; padding: 0 40px;
+      white-space: nowrap;
+    }
+    .ticker-item span { font-size: 13px; font-weight: 600; color: var(--text-2); }
+    .ticker-item strong { color: var(--text); }
+    .ticker-sep { color: var(--orange); font-size: 18px; }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ─── ABOUT ─── */
+    #about { background: var(--bg-2); }
+    .about-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+    }
+    .about-visual {
+      position: relative;
+    }
+    .about-card-main {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 32px;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-icon-wrap {
+      width: 52px; height: 52px; border-radius: 12px;
+      background: rgba(59,130,246,0.12); display: flex; align-items: center;
+      justify-content: center; margin-bottom: 16px;
+    }
+    .about-icon-wrap svg { width: 24px; height: 24px; color: var(--blue-light); }
+    .about-stat-row {
+      display: flex; gap: 24px; margin-top: 24px; padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+    .about-stat { flex: 1; }
+    .about-stat-num {
+      font-family: var(--font-head); font-size: 30px; font-weight: 800; color: var(--text);
+    }
+    .about-stat-num em { color: var(--orange); font-style: normal; }
+    .about-stat-label { font-size: 12px; color: var(--text-3); font-weight: 500; }
+    .about-card-float {
+      position: absolute; bottom: -24px; right: -24px;
+      background: var(--blue); border-radius: 12px; padding: 16px 20px;
+      box-shadow: 0 8px 32px rgba(59,130,246,0.4);
+    }
+    .about-card-float p { font-size: 13px; font-weight: 700; color: #fff; }
+    .about-card-float span { font-size: 11px; color: rgba(255,255,255,0.7); }
+    .features-list { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 32px; }
+    .feature-item { display: flex; gap: 14px; align-items: flex-start; }
+    .feature-icon {
+      width: 36px; height: 36px; border-radius: 8px; flex-shrink: 0;
+      background: rgba(249,115,22,0.1); display: flex; align-items: center;
+      justify-content: center;
+    }
+    .feature-icon svg { width: 16px; height: 16px; color: var(--orange); }
+    .feature-text { font-size: 14px; color: var(--text-2); }
+    .feature-text strong { color: var(--text); display: block; font-weight: 600; margin-bottom: 2px; font-size: 14px; }
+
+    /* ─── TRAINING ─── */
+    #training { background: var(--bg); }
+    .section-header { text-align: center; max-width: 640px; margin: 0 auto 64px; }
+    .section-header .label { justify-content: center; }
+    .section-header .label::before { display: none; }
+    .section-header .label::after { content: ''; display: block; width: 20px; height: 2px; background: var(--orange); }
+    .courses-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+    }
+    .course-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .course-card:hover {
+      border-color: rgba(59,130,246,0.3);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(59,130,246,0.1);
+    }
+    .course-accent {
+      height: 4px;
+    }
+    .course-accent-1 { background: linear-gradient(90deg, #3b82f6, #8b5cf6); }
+    .course-accent-2 { background: linear-gradient(90deg, #f97316, #ef4444); }
+    .course-accent-3 { background: linear-gradient(90deg, #22c55e, #3b82f6); }
+    .course-accent-4 { background: linear-gradient(90deg, #f59e0b, #f97316); }
+    .course-accent-5 { background: linear-gradient(90deg, #ef4444, #ec4899); }
+    .course-accent-6 { background: linear-gradient(90deg, #8b5cf6, #3b82f6); }
+    .course-body { padding: 24px; }
+    .course-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: rgba(59,130,246,0.1); display: flex; align-items: center;
+      justify-content: center; margin-bottom: 16px;
+    }
+    .course-icon svg { width: 22px; height: 22px; }
+    .course-title { font-family: var(--font-head); font-weight: 700; font-size: 18px; margin-bottom: 8px; }
+    .course-desc { font-size: 13px; color: var(--text-2); line-height: 1.65; margin-bottom: 16px; }
+    .course-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+
+    /* ─── IT SERVICES ─── */
+    #services { background: var(--bg-2); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+    }
+    .service-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 32px;
+      transition: all 0.3s ease;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(59,130,246,0.4), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-card:hover {
+      border-color: rgba(59,130,246,0.2);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+    }
+    .service-num {
+      font-family: var(--font-head); font-size: 48px; font-weight: 800;
+      color: rgba(59,130,246,0.08); position: absolute; top: 16px; right: 20px;
+      line-height: 1; pointer-events: none;
+    }
+    .service-icon {
+      width: 52px; height: 52px; border-radius: 12px; margin-bottom: 20px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .service-icon svg { width: 26px; height: 26px; }
+    .service-icon-1 { background: rgba(59,130,246,0.12); }
+    .service-icon-1 svg { color: var(--blue-light); }
+    .service-icon-2 { background: rgba(249,115,22,0.12); }
+    .service-icon-2 svg { color: var(--orange); }
+    .service-icon-3 { background: rgba(34,197,94,0.12); }
+    .service-icon-3 svg { color: var(--green); }
+    .service-icon-4 { background: rgba(245,158,11,0.12); }
+    .service-icon-4 svg { color: var(--amber); }
+    .service-title { font-family: var(--font-head); font-weight: 700; font-size: 20px; margin-bottom: 10px; }
+    .service-desc { font-size: 14px; color: var(--text-2); line-height: 1.7; }
+
+    /* ─── HOW IT WORKS ─── */
+    #how { background: var(--bg); }
+    .steps-track {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+      position: relative; margin-top: 48px;
+    }
+    .steps-track::before {
+      content: ''; position: absolute; top: 32px; left: 10%; right: 10%;
+      height: 1px; background: linear-gradient(90deg, var(--border-2), var(--blue), var(--border-2));
+      z-index: 0;
+    }
+    .step {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; position: relative; z-index: 1; padding: 0 12px;
+    }
+    .step-num {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: var(--surface); border: 2px solid var(--border-2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 20px; font-weight: 800;
+      color: var(--blue-light); margin-bottom: 20px;
+      transition: all 0.3s ease;
+    }
+    .step:hover .step-num {
+      background: var(--blue); border-color: var(--blue);
+      color: #fff; box-shadow: 0 0 0 6px rgba(59,130,246,0.15);
+    }
+    .step-title { font-family: var(--font-head); font-weight: 700; font-size: 15px; margin-bottom: 8px; }
+    .step-desc { font-size: 13px; color: var(--text-2); line-height: 1.65; }
+
+    /* ─── PARTNERS ─── */
+    #partners { background: var(--bg-2); }
+    .filter-tabs {
+      display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-bottom: 40px;
+    }
+    .filter-tab {
+      font-family: var(--font-body); font-size: 13px; font-weight: 600;
+      padding: 8px 20px; border-radius: 100px; cursor: pointer;
+      border: 1.5px solid var(--border-2); color: var(--text-2);
+      background: transparent; transition: all 0.2s ease;
+    }
+    .filter-tab.active, .filter-tab:hover {
+      background: var(--blue); color: #fff; border-color: var(--blue);
+    }
+    .partners-grid {
+      display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px;
+    }
+    .partner-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 20px 16px;
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      text-align: center; transition: all 0.3s ease; cursor: default;
+    }
+    .partner-card:hover {
+      border-color: rgba(59,130,246,0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+    .partner-card.hidden { display: none; }
+    .partner-logo {
+      width: 52px; height: 52px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 13px; font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+    .partner-name { font-size: 12px; font-weight: 700; color: var(--text); }
+    .partner-type { font-size: 10px; color: var(--text-3); margin-top: 2px; }
+
+    /* ─── WHY CHOOSE ─── */
+    #why { background: var(--bg); }
+    .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; margin-top: 16px; }
+    .why-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 32px;
+      transition: all 0.3s ease; position: relative; overflow: hidden;
+    }
+    .why-card::after {
+      content: ''; position: absolute; bottom: 0; right: 0;
+      width: 80px; height: 80px;
+      background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .why-card:hover { border-color: var(--border-2); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .why-icon {
+      width: 56px; height: 56px; border-radius: 14px; margin-bottom: 20px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .why-icon svg { width: 28px; height: 28px; }
+    .why-icon-1 { background: rgba(59,130,246,0.12); }
+    .why-icon-1 svg { color: var(--blue-light); }
+    .why-icon-2 { background: rgba(249,115,22,0.12); }
+    .why-icon-2 svg { color: var(--orange); }
+    .why-icon-3 { background: rgba(34,197,94,0.12); }
+    .why-icon-3 svg { color: var(--green); }
+    .why-icon-4 { background: rgba(245,158,11,0.12); }
+    .why-icon-4 svg { color: var(--amber); }
+    .why-title { font-family: var(--font-head); font-weight: 700; font-size: 20px; margin-bottom: 10px; }
+    .why-desc { font-size: 14px; color: var(--text-2); line-height: 1.75; }
+
+    /* ─── TESTIMONIALS ─── */
+    #testimonials { background: var(--bg-2); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .testi-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius-lg); padding: 28px;
+      transition: all 0.3s ease; display: flex; flex-direction: column;
+    }
+    .testi-card:hover { border-color: var(--border-2); transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .testi-stars { display: flex; gap: 3px; margin-bottom: 16px; }
+    .testi-stars span { color: var(--amber); font-size: 16px; }
+    .testi-quote { font-style: italic; font-size: 14px; color: var(--text-2); line-height: 1.75; flex: 1; }
+    .testi-quote::before { content: '\201C'; font-size: 20px; color: var(--blue-light); font-style: normal; }
+    .testi-author { display: flex; align-items: center; gap: 14px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-dark), var(--blue));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-head); font-size: 14px; font-weight: 800; color: #fff; flex-shrink: 0;
+    }
+    .testi-name { font-weight: 700; font-size: 14px; }
+    .testi-role { font-size: 12px; color: var(--text-3); margin-top: 2px; }
+
+    /* ─── CONTACT ─── */
+    #contact { background: var(--bg); }
+    .contact-inner { display: grid; grid-template-columns: 5fr 7fr; gap: 64px; align-items: start; }
+    .contact-info-item { display: flex; gap: 16px; margin-bottom: 28px; }
+    .contact-icon {
+      width: 44px; height: 44px; border-radius: 10px; flex-shrink: 0;
+      background: rgba(59,130,246,0.1); display: flex; align-items: center; justify-content: center;
+    }
+    .contact-icon svg { width: 20px; height: 20px; color: var(--blue-light); }
+    .contact-label { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-3); margin-bottom: 4px; }
+    .contact-val { font-size: 14px; color: var(--text-2); }
+    .contact-val a { color: var(--blue-light); text-decoration: none; }
+    .contact-val a:hover { color: var(--text); }
+
+    /* Form */
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-label { font-size: 13px; font-weight: 600; color: var(--text-2); }
+    .form-input, .form-select, .form-textarea {
+      background: var(--surface); border: 1.5px solid var(--border);
+      border-radius: 8px; padding: 12px 16px;
+      font-family: var(--font-body); font-size: 14px; color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none; width: 100%;
+    }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-select { appearance: none; cursor: pointer; }
+    .form-select option { background: var(--bg-2); color: var(--text); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--blue); box-shadow: 0 0 0 3px rgba(59,130,246,0.12);
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--text-3); }
+    .form-input.error, .form-select.error, .form-textarea.error {
+      border-color: #ef4444;
+    }
+    .field-error { font-size: 12px; color: #ef4444; margin-top: 4px; display: none; }
+    .field-error.show { display: block; }
+    .form-submit { margin-top: 8px; }
+    .success-msg {
+      display: none; background: rgba(34,197,94,0.1); border: 1px solid rgba(34,197,94,0.25);
+      border-radius: 10px; padding: 20px 24px; text-align: center;
+      color: var(--green); font-weight: 600; margin-top: 16px;
+    }
+    .success-msg.show { display: block; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--bg-2); border-top: 1px solid var(--border);
+      padding: 64px 0 0;
+    }
+    .footer-inner {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px;
+      padding-bottom: 48px; border-bottom: 1px solid var(--border);
+    }
+    .footer-brand-name {
+      font-family: var(--font-head); font-weight: 800; font-size: 22px;
+      color: var(--text); margin-bottom: 4px;
+    }
+    .footer-brand-sub { font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--orange); margin-bottom: 16px; }
+    .footer-tagline { font-size: 13px; color: var(--text-3); line-height: 1.7; max-width: 280px; }
+    .footer-col-title { font-family: var(--font-head); font-size: 14px; font-weight: 700; margin-bottom: 16px; color: var(--text); }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 13px; color: var(--text-3); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-bottom {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 0; gap: 16px; flex-wrap: wrap;
+    }
+    .footer-copy { font-size: 12px; color: var(--text-3); }
+    .footer-legal { display: flex; gap: 20px; }
+    .footer-legal a { font-size: 12px; color: var(--text-3); text-decoration: none; }
+    .footer-legal a:hover { color: var(--text); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .hero-visual { display: grid; grid-template-columns: 1fr 1fr; }
+      .steps-track { grid-template-columns: repeat(3, 1fr); gap: 32px; }
+      .steps-track::before { display: none; }
+      .partners-grid { grid-template-columns: repeat(4, 1fr); }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 64px 0; }
+      .nav-links, .nav-cta { display: none; }
+      .hamburger { display: flex; }
+      .hero-visual { grid-template-columns: 1fr; }
+      .stats-mini { display: none; }
+      .about-inner { grid-template-columns: 1fr; }
+      .about-card-float { display: none; }
+      .courses-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .steps-track { grid-template-columns: 1fr 1fr; }
+      .partners-grid { grid-template-columns: repeat(3, 1fr); }
+      .why-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+    }
+    @media (max-width: 480px) {
+      .steps-track { grid-template-columns: 1fr; }
+      .partners-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-cta { flex-direction: column; }
+      .hero-cta .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ───────────────────────── NAVBAR ───────────────────────── -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">
+      <span class="nav-logo-main">BR IT Services</span>
+      <span class="nav-logo-sub">Institute &amp; IT Consultancy</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#training">Training</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#partners">Placements</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary" style="padding: 10px 22px; font-size: 13px;">Enroll Now</a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <a href="#about">About</a>
+  <a href="#training">Training</a>
+  <a href="#services">Services</a>
+  <a href="#partners">Placements</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="btn btn-primary">Enroll Now</a>
+</div>
+
+<!-- ───────────────────────── HERO ───────────────────────── -->
+<section id="hero">
+  <div class="hero-bg">
+    <div class="hero-bg-gradient"></div>
+    <div class="hero-grid"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">India's Trusted IT Career Partner</div>
+      <span class="hero-brand">BR IT Career</span>
+      <h1 class="heading hero-title">India's Trusted IT Training &amp; Placement Partner</h1>
+      <p class="hero-description">
+        BR IT Services provides industry-grade training, live project experience, and direct placement support — connecting freshers and professionals to top MNCs, product companies, and growing tech firms across India.
+      </p>
+      <div class="hero-cta">
+        <a href="#training" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          Explore Courses
+        </a>
+        <a href="#contact" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.27 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Free Counselling
+        </a>
+      </div>
+      <div class="hero-tags">
+        <span class="tag">Java</span>
+        <span class="tag">Python</span>
+        <span class="tag">Linux</span>
+        <span class="tag">Testing</span>
+        <span class="tag">C / C++</span>
+        <span class="tag">Admin</span>
+        <span class="tag tag-orange">BPO</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="terminal">
+        <div class="terminal-header">
+          <div class="dot dot-r"></div>
+          <div class="dot dot-y"></div>
+          <div class="dot dot-g"></div>
+          <span class="terminal-title">br-it-career ~ placements</span>
+        </div>
+        <div class="terminal-body">
+          <div class="t-line"><span class="t-prompt">$</span><span class="t-cmd"> check-status --batch=2026-A</span></div>
+          <div class="t-output t-green">✔ Training: Complete (Java + Spring Boot)</div>
+          <div class="t-output t-green">✔ Mock Interviews: 3/3 passed</div>
+          <div class="t-output t-orange">→ Placement Drive: Scheduled</div>
+          <div class="t-line" style="margin-top:8px"><span class="t-prompt">$</span><span class="t-cmd"> get-offers --student=VR22</span></div>
+          <div class="t-output t-green">✔ Offer received: TCS — Java Developer</div>
+          <div class="t-output" style="color:#60a5fa">  Package: ₹3.8 LPA | Joining: Nov 2026</div>
+          <div class="t-line" style="margin-top:8px"><span class="t-prompt">$</span><span class="t-cmd"> stats --company-network<span class="t-cursor"></span></span></div>
+          <div class="t-output t-green">✔ 80+ active hiring partners</div>
+          <div class="t-output t-green">✔ 94% placement rate (2025–26)</div>
+        </div>
+      </div>
+
+      <div class="stats-mini">
+        <div class="stat-mini-card">
+          <div class="stat-mini-num"><span class="count" data-target="270">0</span><span>+</span></div>
+          <div class="stat-mini-label">Students Placed</div>
+        </div>
+        <div class="stat-mini-card">
+          <div class="stat-mini-num"><span class="count" data-target="80">0</span><span>+</span></div>
+          <div class="stat-mini-label">Partner Companies</div>
+        </div>
+        <div class="stat-mini-card">
+          <div class="stat-mini-num"><span class="count" data-target="94">0</span><span>%</span></div>
+          <div class="stat-mini-label">Placement Rate</div>
+        </div>
+        <div class="stat-mini-card">
+          <div class="stat-mini-num">1.5<span>+</span></div>
+          <div class="stat-mini-label">Years Experience</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── TICKER ───────────────────────── -->
+<div class="ticker-wrap">
+  <div class="ticker-track" id="ticker">
+    <!-- Items duplicated in JS -->
+    <div class="ticker-item"><strong>270+</strong><span>Students Successfully Placed</span><span class="ticker-sep">◆</span></div>
+    <div class="ticker-item"><strong>80+</strong><span>Hiring Partner Companies</span><span class="ticker-sep">◆</span></div>
+    <div class="ticker-item"><strong>6</strong><span>Technical Training Programs</span><span class="ticker-sep">◆</span></div>
+    <div class="ticker-item"><strong>94%</strong><span>Placement Success Rate</span><span class="ticker-sep">◆</span></div>
+    <div class="ticker-item"><strong>BR IT Services</strong><span>— Institute &amp; IT Consultancy</span><span class="ticker-sep">◆</span></div>
+    <div class="ticker-item"><strong>1.5+</strong><span>Years Empowering Careers</span><span class="ticker-sep">◆</span></div>
+    <div class="ticker-item"><strong>270+</strong><span>Students Successfully Placed</span><span class="ticker-sep">◆</span></div>
+    <div class="ticker-item"><strong>80+</strong><span>Hiring Partner Companies</span><span class="ticker-sep">◆</span></div>
+    <div class="ticker-item"><strong>6</strong><span>Technical Training Programs</span><span class="ticker-sep">◆</span></div>
+    <div class="ticker-item"><strong>94%</strong><span>Placement Success Rate</span><span class="ticker-sep">◆</span></div>
+    <div class="ticker-item"><strong>BR IT Services</strong><span>— Institute &amp; IT Consultancy</span><span class="ticker-sep">◆</span></div>
+    <div class="ticker-item"><strong>1.5+</strong><span>Years Empowering Careers</span><span class="ticker-sep">◆</span></div>
+  </div>
+</div>
+
+<!-- ───────────────────────── ABOUT ───────────────────────── -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-visual reveal">
+        <div class="about-card-main">
+          <div class="about-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <h3 style="font-family: var(--font-head); font-weight: 700; font-size: 18px; margin-bottom: 8px;">About BR IT Services</h3>
+          <p style="font-size: 13px; color: var(--text-2); line-height: 1.7;">Premier IT training institute and consultancy in Marathahalli, Bengaluru — dedicated to bridging the gap between education and employment.</p>
+          <div class="about-stat-row">
+            <div class="about-stat">
+              <div class="about-stat-num"><span class="count" data-target="270">0</span><em>+</em></div>
+              <div class="about-stat-label">Placed Students</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num"><span class="count" data-target="80">0</span><em>+</em></div>
+              <div class="about-stat-label">Partner Companies</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-num"><span class="count" data-target="94">0</span><em>%</em></div>
+              <div class="about-stat-label">Placement Rate</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-card-float">
+          <p>10+ Years</p>
+          <span>Average trainer experience</span>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div class="label">Our Story</div>
+        <h2 class="heading">Your Career Growth<br />Is Our Mission</h2>
+        <p class="body-text" style="margin-top: 16px;">
+          BR IT Services is a premier IT training institute and consultancy dedicated to bridging the gap between education and employment. We train freshers and working professionals in high-demand technologies and place them directly into top companies.
+        </p>
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="feature-text"><strong>Industry-Expert Trainers</strong>Industry-experienced trainers with 10+ years hands-on corporate expertise.</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div class="feature-text"><strong>Project-Based Curriculum</strong>Practical, project-based curriculum aligned to current job requirements.</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <div class="feature-text"><strong>Dedicated Placement Cell</strong>Active recruiter relationships and dedicated placement support until you're hired.</div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="feature-text"><strong>Flexible Batch Timings</strong>Weekday, weekend, and online options to fit your schedule.</div>
+          </div>
+        </div>
+        <a href="#contact" class="btn btn-blue">Talk to a Counsellor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── TRAINING ───────────────────────── -->
+<section class="section" id="training">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Training Programs</div>
+      <h2 class="heading">Fresher-to-Professional<br />Skills Training</h2>
+      <p class="body-text" style="margin-top: 16px;">Hands-on, industry-aligned courses designed to take you from zero to job-ready in the fastest, most structured way possible.</p>
+    </div>
+    <div class="courses-grid">
+      <!-- Java -->
+      <div class="course-card reveal reveal-delay-1">
+        <div class="course-accent course-accent-1"></div>
+        <div class="course-body">
+          <div class="course-icon" style="background: rgba(59,130,246,0.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <div class="course-title">Java Development</div>
+          <div class="course-desc">Master Core Java, J2EE, Spring Boot, Hibernate, and REST APIs with real-world project development. Ideal for backend and full-stack roles.</div>
+          <div class="course-tags">
+            <span class="tag">Core Java</span><span class="tag">Spring Boot</span><span class="tag">REST API</span><span class="tag">Hibernate</span><span class="tag">Maven</span>
+          </div>
+        </div>
+      </div>
+      <!-- Python -->
+      <div class="course-card reveal reveal-delay-2">
+        <div class="course-accent course-accent-2"></div>
+        <div class="course-body">
+          <div class="course-icon" style="background: rgba(249,115,22,0.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="course-title">Python Programming</div>
+          <div class="course-desc">Learn Python from fundamentals through automation, data analysis, and Django web development. High demand in startups and MNCs.</div>
+          <div class="course-tags">
+            <span class="tag tag-orange">Python 3</span><span class="tag tag-orange">Django</span><span class="tag tag-orange">Automation</span><span class="tag tag-orange">Pandas</span><span class="tag tag-orange">NumPy</span>
+          </div>
+        </div>
+      </div>
+      <!-- Linux -->
+      <div class="course-card reveal reveal-delay-3">
+        <div class="course-accent course-accent-3"></div>
+        <div class="course-body">
+          <div class="course-icon" style="background: rgba(34,197,94,0.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="course-title">Linux &amp; System Admin</div>
+          <div class="course-desc">Deep dive into Linux OS, shell scripting, network administration, server management, and DevOps fundamentals for admin-focused roles.</div>
+          <div class="course-tags">
+            <span class="tag tag-green">Linux</span><span class="tag tag-green">Shell Script</span><span class="tag tag-green">Networking</span><span class="tag tag-green">AWS</span><span class="tag tag-green">DevOps</span>
+          </div>
+        </div>
+      </div>
+      <!-- C/C++ -->
+      <div class="course-card reveal reveal-delay-4">
+        <div class="course-accent course-accent-4"></div>
+        <div class="course-body">
+          <div class="course-icon" style="background: rgba(245,158,11,0.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <div class="course-title">C / C++ Programming</div>
+          <div class="course-desc">Build a solid programming foundation with C and C++ — covering pointers, data structures, OOP, and embedded systems concepts.</div>
+          <div class="course-tags">
+            <span class="tag" style="background:rgba(245,158,11,0.1);color:#f59e0b;border-color:rgba(245,158,11,0.2)">C Language</span>
+            <span class="tag" style="background:rgba(245,158,11,0.1);color:#f59e0b;border-color:rgba(245,158,11,0.2)">C++</span>
+            <span class="tag" style="background:rgba(245,158,11,0.1);color:#f59e0b;border-color:rgba(245,158,11,0.2)">OOP</span>
+            <span class="tag" style="background:rgba(245,158,11,0.1);color:#f59e0b;border-color:rgba(245,158,11,0.2)">DSSA</span>
+            <span class="tag" style="background:rgba(245,158,11,0.1);color:#f59e0b;border-color:rgba(245,158,11,0.2)">Embedded</span>
+          </div>
+        </div>
+      </div>
+      <!-- Testing -->
+      <div class="course-card reveal reveal-delay-5">
+        <div class="course-accent course-accent-5"></div>
+        <div class="course-body">
+          <div class="course-icon" style="background: rgba(239,68,68,0.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          </div>
+          <div class="course-title">Software Testing</div>
+          <div class="course-desc">Comprehensive QA training covering manual testing, Selenium automation, test planning, JIRA bug tracking, and Agile methodology.</div>
+          <div class="course-tags">
+            <span class="tag" style="background:rgba(239,68,68,0.1);color:#f87171;border-color:rgba(239,68,68,0.2)">Manual Testing</span>
+            <span class="tag" style="background:rgba(239,68,68,0.1);color:#f87171;border-color:rgba(239,68,68,0.2)">Selenium</span>
+            <span class="tag" style="background:rgba(239,68,68,0.1);color:#f87171;border-color:rgba(239,68,68,0.2)">JIRA</span>
+            <span class="tag" style="background:rgba(239,68,68,0.1);color:#f87171;border-color:rgba(239,68,68,0.2)">Agile</span>
+            <span class="tag" style="background:rgba(239,68,68,0.1);color:#f87171;border-color:rgba(239,68,68,0.2)">API Testing</span>
+          </div>
+        </div>
+      </div>
+      <!-- DBA -->
+      <div class="course-card reveal reveal-delay-6">
+        <div class="course-accent course-accent-6"></div>
+        <div class="course-body">
+          <div class="course-icon" style="background: rgba(139,92,246,0.1)">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+          </div>
+          <div class="course-title">Database Administration</div>
+          <div class="course-desc">Master SQL, MySQL, Oracle, and database design principles. Learn backup, recovery, performance tuning, and cloud database essentials.</div>
+          <div class="course-tags">
+            <span class="tag" style="background:rgba(139,92,246,0.1);color:#a78bfa;border-color:rgba(139,92,246,0.2)">SQL</span>
+            <span class="tag" style="background:rgba(139,92,246,0.1);color:#a78bfa;border-color:rgba(139,92,246,0.2)">MySQL</span>
+            <span class="tag" style="background:rgba(139,92,246,0.1);color:#a78bfa;border-color:rgba(139,92,246,0.2)">Oracle</span>
+            <span class="tag" style="background:rgba(139,92,246,0.1);color:#a78bfa;border-color:rgba(139,92,246,0.2)">MongoDB</span>
+            <span class="tag" style="background:rgba(139,92,246,0.1);color:#a78bfa;border-color:rgba(139,92,246,0.2)">Perf. Tuning</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── IT SERVICES ───────────────────────── -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">IT Services</div>
+      <h2 class="heading">End-to-End Business<br />IT Solutions</h2>
+      <p class="body-text" style="margin-top: 16px;">Beyond training, BR IT Services delivers comprehensive IT and consulting services to businesses — from staffing to BPO operations and technology consulting.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-num">01</div>
+        <div class="service-icon service-icon-1">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <div class="service-title">IT Staffing &amp; Recruitment</div>
+        <div class="service-desc">We source, screen, and deploy skilled IT professionals to companies of all sizes — from freshers to experienced senior engineers. Permanent and contract roles available.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-num">02</div>
+        <div class="service-icon service-icon-2">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="service-title">BPO &amp; Non-Voice Services</div>
+        <div class="service-desc">Scalable back-office, data entry, customer support, and non-voice BPO services. Our trained workforce handles high-volume operations with quality assurance.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-num">03</div>
+        <div class="service-icon service-icon-3">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="service-title">IT Consulting &amp; Project Support</div>
+        <div class="service-desc">Expert IT consulting for businesses undergoing digital transformation. We provide technical guidance, project management, and implementation support.</div>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-num">04</div>
+        <div class="service-icon service-icon-4">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        </div>
+        <div class="service-title">Campus &amp; Job Placement</div>
+        <div class="service-desc">Dedicated placement drives connecting our trained students directly with MNCs, Tier 1, and Tier 2 companies. Walk-in drives, campus connects, and referral networks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── HOW IT WORKS ───────────────────────── -->
+<section class="section" id="how">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Process</div>
+      <h2 class="heading">Your Journey from<br />Training to Offer Letter</h2>
+    </div>
+    <div class="steps-track">
+      <div class="step reveal reveal-delay-1">
+        <div class="step-num">1</div>
+        <div class="step-title">Enroll &amp; Assess</div>
+        <div class="step-desc">Register and attend a free skills assessment to identify the right program for your goals.</div>
+      </div>
+      <div class="step reveal reveal-delay-2">
+        <div class="step-num">2</div>
+        <div class="step-title">Intensive Training</div>
+        <div class="step-desc">Learn with experienced trainers through hands-on labs, projects, and real case studies.</div>
+      </div>
+      <div class="step reveal reveal-delay-3">
+        <div class="step-num">3</div>
+        <div class="step-title">Project Practice</div>
+        <div class="step-desc">Build your portfolio with live industry projects that demonstrate your skills to recruiters.</div>
+      </div>
+      <div class="step reveal reveal-delay-4">
+        <div class="step-num">4</div>
+        <div class="step-title">Interview Prep</div>
+        <div class="step-desc">Mock interviews, resume workshops, aptitude training, and HR round preparation.</div>
+      </div>
+      <div class="step reveal reveal-delay-5">
+        <div class="step-num">5</div>
+        <div class="step-title">Placement Drive</div>
+        <div class="step-desc">Get referred to our 80+ partner companies and attend exclusive placement drives.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── PARTNERS ───────────────────────── -->
+<section class="section" id="partners">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Hiring Partners</div>
+      <h2 class="heading">Placed in Top Companies</h2>
+      <p class="body-text" style="margin-top: 16px;">Our graduates work at leading MNCs, product-based unicorns, and Tier 1 &amp; Tier 2 IT firms across India.</p>
+    </div>
+    <div class="filter-tabs reveal" role="group" aria-label="Filter companies">
+      <button class="filter-tab active" data-filter="all">All</button>
+      <button class="filter-tab" data-filter="mnc">MNCs</button>
+      <button class="filter-tab" data-filter="product">Product-Based</button>
+      <button class="filter-tab" data-filter="tier1">Tier 1</button>
+      <button class="filter-tab" data-filter="tier2">Tier 2</button>
+    </div>
+    <div class="partners-grid" id="partners-grid">
+      <!-- Logos rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── WHY CHOOSE ───────────────────────── -->
+<section class="section" id="why">
+  <div class="container">
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+      <div class="reveal">
+        <div class="label">Why Choose Us</div>
+        <h2 class="heading">Training That<br />Delivers Results</h2>
+        <p class="body-text" style="margin-top: 16px; margin-bottom: 32px;">
+          We combine real industry experience, live project exposure, and a proven placement machine to put freshers and professionals into the careers they deserve.
+        </p>
+        <div style="display: flex; gap: 32px; padding: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg);">
+          <div style="text-align: center;">
+            <div style="font-family: var(--font-head); font-size: 32px; font-weight: 800; color: var(--orange);">94%</div>
+            <div style="font-size: 12px; color: var(--text-3); font-weight: 500;">Placement Rate</div>
+          </div>
+          <div style="width: 1px; background: var(--border);"></div>
+          <div style="text-align: center;">
+            <div style="font-family: var(--font-head); font-size: 32px; font-weight: 800; color: var(--blue-light);">10+</div>
+            <div style="font-size: 12px; color: var(--text-3); font-weight: 500;">Yrs Trainer Exp.</div>
+          </div>
+          <div style="width: 1px; background: var(--border);"></div>
+          <div style="text-align: center;">
+            <div style="font-family: var(--font-head); font-size: 32px; font-weight: 800; color: var(--green);">80+</div>
+            <div style="font-size: 12px; color: var(--text-3); font-weight: 500;">Partner Firms</div>
+          </div>
+        </div>
+      </div>
+      <div class="why-grid">
+        <div class="why-card reveal reveal-delay-1">
+          <div class="why-icon why-icon-1">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="why-title">Industry-Expert Trainers</div>
+          <div class="why-desc">All trainers have 10+ years of corporate experience. You learn what the industry actually uses today.</div>
+        </div>
+        <div class="why-card reveal reveal-delay-2">
+          <div class="why-icon why-icon-2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="why-title">Guaranteed Placement Support</div>
+          <div class="why-desc">We don't just teach — we place. Our dedicated placement cell works until you land your first or next role.</div>
+        </div>
+        <div class="why-card reveal reveal-delay-3">
+          <div class="why-icon why-icon-3">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div class="why-title">Live Project Experience</div>
+          <div class="why-desc">Work on real-world projects that go into your portfolio. Employers recognise project-ready candidates immediately.</div>
+        </div>
+        <div class="why-card reveal reveal-delay-4">
+          <div class="why-icon why-icon-4">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <div class="why-title">Diverse Career Paths</div>
+          <div class="why-desc">We support IT MNCs, Semi IT, non-IT, admin, testing, and consulting paths — something for every kind of tech ambition.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── TESTIMONIALS ───────────────────────── -->
+<section class="section" id="testimonials" style="background: var(--bg-2)">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="label">Student Stories</div>
+      <h2 class="heading">What Our Alumni Say</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testi-card reveal reveal-delay-1">
+        <div class="testi-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <div class="testi-quote">BR IT Services transformed my career. I came with zero Java knowledge and within 4 months I had an offer from TCS. The trainers are exceptional and the placement support is real.</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #1d4ed8, #3b82f6)">V</div>
+          <div>
+            <div class="testi-name">Vikash</div>
+            <div class="testi-role">Java Developer · TCS</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-2">
+        <div class="testi-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <div class="testi-quote">The Python and Linux course here is the most practical I've seen. Got placed at HCL as a system engineer. The mock interviews here are harder than the real ones — great preparation!</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #7c3aed, #a855f7)">P</div>
+          <div>
+            <div class="testi-name">Priya</div>
+            <div class="testi-role">System Engineer · HCL Tech</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card reveal reveal-delay-3">
+        <div class="testi-stars">
+          <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+        </div>
+        <div class="testi-quote">I joined the software testing course as a fresher. BR IT's placement team arranged 3 interview opportunities for me within 2 weeks of course completion. Now working at Hexaware.</div>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background: linear-gradient(135deg, #b45309, #f97316)">MF</div>
+          <div>
+            <div class="testi-name">Mohammed Farhan</div>
+            <div class="testi-role">QA Engineer · Hexaware</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── CONTACT ───────────────────────── -->
+<section class="section" id="contact">
+  <div class="container">
+    <div class="section-header reveal" style="margin-bottom: 56px;">
+      <div class="label">Get in Touch</div>
+      <h2 class="heading">Start Your Journey Today</h2>
+      <p class="body-text" style="margin-top: 16px;">Book a free counselling session, enquire about a course, or contact us about our IT services and placement partnerships.</p>
+    </div>
+    <div class="contact-inner">
+      <div class="reveal">
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Address</div>
+            <div class="contact-val">BR IT Services, Institute &amp; IT Consultancy<br />Marathahalli, Bengaluru, Karnataka 560037<br />India</div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13 19.79 19.79 0 0 1 1.61 4.27 2 2 0 0 1 3.59 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 9.91a16 16 0 0 0 6.29 6.29l.91-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Phone</div>
+            <div class="contact-val"><a href="tel:+917989801469">+91 7989801469</a></div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-val">
+              <a href="mailto:info@britservices.in">info@britservices.in</a><br />
+              <a href="mailto:britservicesconsultancy@gmail.com">britservicesconsultancy@gmail.com</a>
+            </div>
+          </div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="contact-label">Timings</div>
+            <div class="contact-val">Mon – Sat: 9:00 AM – 7:00 PM<br />Sunday: 10:00 AM – 2:00 PM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 36px;">
+          <form id="contact-form" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="fname">First Name</label>
+                <input class="form-input" type="text" id="fname" name="fname" placeholder="Rahul" autocomplete="given-name" />
+                <span class="field-error" id="fname-err">Please enter your first name.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lname">Last Name</label>
+                <input class="form-input" type="text" id="lname" name="lname" placeholder="Kumar" autocomplete="family-name" />
+                <span class="field-error" id="lname-err">Please enter your last name.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="email">Email Address</label>
+                <input class="form-input" type="email" id="email" name="email" placeholder="rahul@email.com" autocomplete="email" />
+                <span class="field-error" id="email-err">Please enter a valid email.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="phone">Phone Number</label>
+                <input class="form-input" type="tel" id="phone" name="phone" placeholder="+91 98765 43210" autocomplete="tel" />
+                <span class="field-error" id="phone-err">Please enter your phone number.</span>
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="interest">Interested In</label>
+                <select class="form-select" id="interest" name="interest">
+                  <option value="" disabled selected>Select a course / service</option>
+                  <option value="java">Java Development</option>
+                  <option value="python">Python Programming</option>
+                  <option value="linux">Linux &amp; Admin</option>
+                  <option value="cpp">C / C++</option>
+                  <option value="testing">Software Testing</option>
+                  <option value="dba">Database Administration</option>
+                  <option value="staffing">IT Staffing</option>
+                  <option value="bpo">BPO Services</option>
+                  <option value="consulting">IT Consulting</option>
+                  <option value="placement">Placement Drive</option>
+                </select>
+                <span class="field-error" id="interest-err">Please select an option.</span>
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="message">Message</label>
+                <textarea class="form-textarea" id="message" name="message" placeholder="Tell us about your background and goals..."></textarea>
+              </div>
+              <div class="form-group full form-submit">
+                <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 15px; padding: 16px;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                  Send Enquiry
+                </button>
+              </div>
+            </div>
+          </form>
+          <div class="success-msg" id="success-msg">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="vertical-align: middle; margin-right: 8px;"><polyline points="20 6 9 17 4 12"/></svg>
+            Thank you! We'll be in touch within 24 hours.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────────────────── FOOTER ───────────────────────── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-brand-name">BR IT Services</div>
+        <div class="footer-brand-sub">Institute &amp; IT Consultancy</div>
+        <p class="footer-tagline">Empowering freshers and professionals to build successful IT careers through quality training, live projects, and direct placement support.</p>
+      </div>
+      <div>
+        <div class="footer-col-title">Courses</div>
+        <ul class="footer-links">
+          <li><a href="#training">Java Development</a></li>
+          <li><a href="#training">Python Programming</a></li>
+          <li><a href="#training">Linux &amp; Admin</a></li>
+          <li><a href="#training">C / C++</a></li>
+          <li><a href="#training">Software Testing</a></li>
+          <li><a href="#training">Database Admin</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#services">IT Staffing</a></li>
+          <li><a href="#services">BPO Services</a></li>
+          <li><a href="#services">Non-Voice BPO</a></li>
+          <li><a href="#services">IT Consulting</a></li>
+          <li><a href="#services">Placement Drives</a></li>
+          <li><a href="#services">Corporate Training</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#partners">Placements</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Job Updates</a></li>
+          <li><a href="#contact">Partner With Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2026 BR IT Services — Institute &amp; IT Consultancy. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── PARTNER DATA ───────────────────────────────────────
+const PARTNERS = [
+  { abbr:'TCS',  name:'TCS',          type:'MNCs · Tier 1',           cats:['mnc','tier1'], bg:'#1a3a5c', color:'#60a5fa' },
+  { abbr:'INF',  name:'Infosys',       type:'MNCs · Tier 1',           cats:['mnc','tier1'], bg:'#0d2d1a', color:'#4ade80' },
+  { abbr:'WIP',  name:'Wipro',         type:'MNCs · Tier 1',           cats:['mnc','tier1'], bg:'#2d1a0d', color:'#fb923c' },
+  { abbr:'ACC',  name:'Accenture',     type:'MNCs · Tier 1',           cats:['mnc','tier1'], bg:'#1a0d2d', color:'#c084fc' },
+  { abbr:'CTS',  name:'Cognizant',     type:'MNCs · Tier 1',           cats:['mnc','tier1'], bg:'#0d1a2d', color:'#38bdf8' },
+  { abbr:'HCL',  name:'HCL Tech',      type:'MNCs · Tier 1',           cats:['mnc','tier1'], bg:'#1a2d0d', color:'#86efac' },
+  { abbr:'IBM',  name:'IBM',           type:'MNCs · Tier 1',           cats:['mnc','tier1'], bg:'#0d1a3d', color:'#7dd3fc' },
+  { abbr:'CAP',  name:'Capgemini',     type:'MNCs · Tier 1',           cats:['mnc','tier1'], bg:'#1a0d1a', color:'#d8b4fe' },
+  { abbr:'TM',   name:'Tech Mahindra', type:'MNCs · Tier 1',           cats:['mnc','tier1'], bg:'#2d1a1a', color:'#fca5a5' },
+  { abbr:'MS',   name:'Microsoft',     type:'Product-Based · Tier 1',  cats:['product','tier1'], bg:'#0d2d2d', color:'#5eead4' },
+  { abbr:'GGL',  name:'Google',        type:'Product-Based · Tier 1',  cats:['product','tier1'], bg:'#1a2d0d', color:'#bef264' },
+  { abbr:'AMZ',  name:'Amazon',        type:'Product-Based · Tier 1',  cats:['product','tier1'], bg:'#2d1f0d', color:'#fcd34d' },
+  { abbr:'FK',   name:'Flipkart',      type:'Product-Based · Tier 1',  cats:['product','tier1'], bg:'#0d1a2d', color:'#93c5fd' },
+  { abbr:'SWG',  name:'Swiggy',        type:'Product-Based · Tier 2',  cats:['product','tier2'], bg:'#2d1a0d', color:'#fdba74' },
+  { abbr:'HEX',  name:'Hexaware',      type:'MNCs · Tier 2',           cats:['mnc','tier2'],     bg:'#1a1a2d', color:'#a5b4fc' },
+  { abbr:'MPH',  name:'Mphasis',       type:'MNCs · Tier 2',           cats:['mnc','tier2'],     bg:'#0d2d1a', color:'#6ee7b7' },
+  { abbr:'MST',  name:'Mastek',        type:'MNCs · Tier 2',           cats:['mnc','tier2'],     bg:'#2d0d1a', color:'#f9a8d4' },
+  { abbr:'PER',  name:'Persistent',    type:'Product-Based · Tier 2',  cats:['product','tier2'], bg:'#0d1a1a', color:'#67e8f9' },
+  { abbr:'CYI',  name:'Cyient',        type:'MNCs · Tier 2',           cats:['mnc','tier2'],     bg:'#1a2d1a', color:'#a3e635' },
+  { abbr:'NIT',  name:'NIIT Tech',     type:'MNCs · Tier 2',           cats:['mnc','tier2'],     bg:'#2d1a2d', color:'#e879f9' },
+];
+
+function renderPartners(filter) {
+  const grid = document.getElementById('partners-grid');
+  grid.innerHTML = '';
+  const filtered = filter === 'all' ? PARTNERS : PARTNERS.filter(p => p.cats.includes(filter));
+  filtered.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'partner-card';
+    card.innerHTML = `
+      <div class="partner-logo" style="background:${p.bg};color:${p.color}">${p.abbr}</div>
+      <div class="partner-name">${p.name}</div>
+      <div class="partner-type">${p.type}</div>
+    `;
+    grid.appendChild(card);
+  });
+}
+renderPartners('all');
+
+document.querySelectorAll('.filter-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-tab').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderPartners(btn.dataset.filter);
+  });
+});
+
+// ─── NAVBAR SCROLL ────────────────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// ─── MOBILE MENU ─────────────────────────────────────────
+const ham = document.getElementById('hamburger');
+const menu = document.getElementById('mobile-menu');
+ham.addEventListener('click', () => {
+  ham.classList.toggle('open');
+  menu.classList.toggle('open');
+});
+menu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => { ham.classList.remove('open'); menu.classList.remove('open'); });
+});
+
+// ─── SCROLL REVEAL ────────────────────────────────────────
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+// ─── COUNTER ANIMATION ────────────────────────────────────
+function animateCount(el) {
+  const target = parseInt(el.dataset.target, 10);
+  const duration = 1800;
+  const start = performance.now();
+  function frame(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    el.textContent = Math.floor(eased * target);
+    if (progress < 1) requestAnimationFrame(frame);
+    else el.textContent = target;
+  }
+  requestAnimationFrame(frame);
+}
+const countIO = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.count').forEach(c => animateCount(c));
+      countIO.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.3 });
+document.querySelectorAll('.stat-mini-card, .about-stat').forEach(el => {
+  el.querySelectorAll('.count').length && countIO.observe(el.closest('.stats-mini, .about-stat-row') || el);
+});
+// Also observe each stat group container
+document.querySelectorAll('.stats-mini, .about-stat-row').forEach(el => countIO.observe(el));
+
+// ─── SMOOTH SCROLL ────────────────────────────────────────
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  });
+});
+
+// ─── CONTACT FORM ────────────────────────────────────────
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  let valid = true;
+
+  function validate(id, errId, check) {
+    const el = document.getElementById(id);
+    const err = document.getElementById(errId);
+    if (!check(el.value.trim())) {
+      el.classList.add('error'); err.classList.add('show'); valid = false;
+    } else {
+      el.classList.remove('error'); err.classList.remove('show');
+    }
+  }
+
+  validate('fname', 'fname-err', v => v.length >= 2);
+  validate('lname', 'lname-err', v => v.length >= 2);
+  validate('email', 'email-err', v => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v));
+  validate('phone', 'phone-err', v => v.length >= 7);
+  validate('interest', 'interest-err', v => v !== '');
+
+  if (valid) {
+    this.style.display = 'none';
+    document.getElementById('success-msg').classList.add('show');
+  }
+});
+
+// Clear error on input
+['fname','lname','email','phone','interest'].forEach(id => {
+  const el = document.getElementById(id);
+  el.addEventListener('input', () => {
+    el.classList.remove('error');
+    document.getElementById(id + '-err').classList.remove('show');
+  });
+});
+</script>
+
+</body>
+</html>
